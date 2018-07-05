@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // function to get battery charging status
-        function batteryChargingStatus () {
+        function batteryChargingStatus (level) {
             if (battery.charging) {
                 // show charging icon
                 console.log('Battery is charging');
@@ -39,12 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('Battery is not charging');
             }
 
-            if (!battery.charging && batteryLevel < 30) {
+            if (!battery.charging && level < 30) {
                 // blink here when battery is low and not charging
                 console.log('Battery is low and not charging! Send Help');
             }
 
-            if (battery.charging && batteryLevel < 30) {
+            if (battery.charging && level < 30) {
                 // dont blink here when battery is above 30 and charging
             }
         }
@@ -52,15 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // listen for when battery is charging and discharging
         battery.addEventListener('chargingchange', (e) => {
             batteryLevelInfo(e.currentTarget.level);
-            batteryChargingStatus();
+            batteryChargingStatus(e.currentTarget.level);
         });
 
         battery.addEventListener('levelchange', function(e) {
             console.log('Level changed to ', e.currentTarget.level * 100);
             batteryLevelInfo(e.currentTarget.level);
+            batteryChargingStatus(e.currentTarget.level);
         });
 
-        // batteryLevelInfo();
-        batteryChargingStatus();
-    })
+        batteryLevelInfo(batteryLevel);
+        batteryChargingStatus(batteryLevel);
+    });
 });
