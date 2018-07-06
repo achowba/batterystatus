@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         battery.addEventListener('levelchange', function(e) {
             console.log('Level changed to ', Math.round(e.currentTarget.level * 100));
-            batteryLevelInfo(Math.round(e.currentTarget.level));
-            batteryChargingStatus(Math.round(e.currentTarget.level));
+            batteryLevelInfo(Math.round(e.currentTarget.level * 100));
+            batteryChargingStatus(Math.round(e.currentTarget.level * 100));
         });
 
         batteryLevelInfo(batteryLevel);
