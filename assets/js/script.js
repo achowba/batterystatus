@@ -57,14 +57,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // listen for when battery is charging and discharging
         battery.addEventListener('chargingchange', (e) => {
-            batteryLevelInfo(Math.round(e.currentTarget.level * 100));
-            batteryChargingStatus(Math.round(e.currentTarget.level * 100));
+            let currentLevel = Math.round(e.currentTarget.level * 100)
+            batteryLevelInfo(currentLevel);
+            batteryChargingStatus(currentLevel);
         });
 
         battery.addEventListener('levelchange', function(e) {
             console.log('Level changed to ', Math.round(e.currentTarget.level * 100));
-            batteryLevelInfo(Math.round(e.currentTarget.level * 100));
-            batteryChargingStatus(Math.round(e.currentTarget.level * 100));
+            let currentLevel = Math.round(e.currentTarget.level * 100)
+            batteryLevelInfo(currentLevel);
+            batteryChargingStatus(currentLevel);
         });
 
         batteryLevelInfo(batteryLevel);
