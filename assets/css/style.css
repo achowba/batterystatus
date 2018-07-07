@@ -19,8 +19,8 @@ body {
 	position: absolute;
 	background-color: #000000;
 	width: 55px;
-	height: 7px;
-	margin: -7px 47px;
+	height: 10px;
+	margin: -10px 47px;
 }
 
 #battery-level {
@@ -32,10 +32,10 @@ body {
 }
 
 .charging-status {
-    width: 60%;
-    height: 100%;
-    max-height: 100%;
-    margin: 80px auto;
+    width: 55%;
+	height: 100%;
+	max-height: 100%;
+	margin: 80px auto;
 }
 
 #charging-icon {
@@ -43,3 +43,10 @@ body {
     color: #ffffff;
     font-size: 5rem !important;
 }
+
+
+/* 
+high = #27AE60
+med = #E67E22
+low = #E74C3C
+*/
