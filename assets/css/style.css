@@ -4,7 +4,19 @@ body {
     background-color: #ffffff;
 }
 
-.battery-wrapper {
+a {
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+#battery-wrapper {
     position: relative;
     cursor: pointer;
     height: 300px;
@@ -14,7 +26,7 @@ body {
     border: 2px solid black;
 }
 
-.battery-wrapper::before {
+#battery-wrapper::before {
     content: " ";
 	position: absolute;
 	background-color: #000000;
@@ -44,8 +56,26 @@ body {
     font-size: 5rem !important;
 }
 
+#unsupported-browser {
+    width: 96%;
+    padding: 1%;
+}
 
-/* 
+.img-wrapper {
+    width: 200px;
+	margin: 100px auto 0;
+}
+
+.img-wrapper > img {
+    width: 100%;
+	height: inherit;
+}
+
+#unsupported-browser > p {
+    text-align: center;
+}
+
+/*
 high = #27AE60
 med = #E67E22
 low = #E74C3C

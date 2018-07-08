@@ -11,7 +11,7 @@ let staticFiles = [
     '/assets/fonts/fontawesome-webfont.woff2',
     '/assets/fonts/FontAwesome.otf',
 ];
-let staticCacheName = 'static-cache-v1';
+let staticCacheName = 'static-cache-v2';
 
 self.addEventListener('install', (e) => {
     console.log('[Service worker] Installing service worker');
