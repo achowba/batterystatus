@@ -43,6 +43,13 @@ a {
     bottom: 0;
 }
 
+#percentage {
+    text-align: center;
+    font-size: 4rem;
+    color: white;
+    font-family: "Lato";
+}
+
 .charging-status {
     width: 55%;
 	height: 100%;

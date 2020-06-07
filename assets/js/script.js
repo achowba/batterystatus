@@ -1,12 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let batteryLevelDiv = document.querySelector('#battery-level');
-    let chargingIcon = document.querySelector('#charging-icon');
-    let batteryWrapperDiv = document.querySelector('#battery-wrapper');
-    let unsupportedBrowserDiv = document.querySelector('#unsupported-browser');
+    const batteryLevelDiv = document.querySelector('#battery-level');
+    const batteryPercentage = document.querySelector('#percentage');
+    const chargingIcon = document.querySelector('#charging-icon');
+    const batteryWrapperDiv = document.querySelector('#battery-wrapper');
+    const unsupportedBrowserDiv = document.querySelector('#unsupported-browser');
 
     function setBatteryStatus (level, color) {
         batteryLevelDiv.style.backgroundColor = color;
         batteryLevelDiv.style.height = level + '%';
+        batteryPercentage.innerHTML = `${level}%`;
     }
 
     // function to get battery level

@@ -1,4 +1,4 @@
-let staticFiles = [
+const staticFiles = [
     '/',
     '/index.html',
     '/assets/css/style.css',
@@ -11,34 +11,31 @@ let staticFiles = [
     '/assets/fonts/fontawesome-webfont.woff2',
     '/assets/fonts/FontAwesome.otf',
 ];
-let staticCacheName = 'static-cache-v2';
+const staticCacheName = 'static-cache-v3';
 
 self.addEventListener('install', (e) => {
     console.log('[Service worker] Installing service worker');
     e.waitUntil(
-        caches.open(staticCacheName)
-        .then((cache) => {
-              console.log('[Service worker] Precaching app shell');
-              cache.addAll(staticFiles)
-                .catch((err) => {
+        caches.open(staticCacheName).then((cache) => {
+            console.log('[Service worker] Precaching app shell');
+            cache.addAll(staticFiles).catch((err) => {
                     console.log('Error in caching: ', err);
-                });
-         })
+            });
+        })
     );
 });
 
 self.addEventListener('activate', (e) => {
     console.log('[Service worker] Activating service worker');
     e.waitUntil(
-        caches.keys()
-        .then((keys) => {
+        caches.keys().then((keys) => {
             return Promise.all(keys.map((key) => {
                 if (key !== staticCacheName) {
                     console.log('[Service worker] Activating service worker');
                     return caches.delete(key);
                 }
             }));
-          })
+        })
     );
     return self.clients.claim();
 });
@@ -46,7 +43,7 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
     e.respondWith(
         caches.match(e.request).then((response) => {
-          return response || fetch(e.request);
+            return response || fetch(e.request);
         })
-      );
+    );
 });
